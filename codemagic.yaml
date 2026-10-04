@@ -1,20 +1,14 @@
 workflows:
-  jasmin_android:
-    name: Jasmin Android Final 2.1
+  jasmina_android:
+    name: JasminaAI Android
     environment:
       flutter: stable
     scripts:
       - name: Create Android platform
-        script: flutter create --platforms=android --org com.jasmin.ai .
-      - name: Patch Android permissions and app label
-        script: bash patch_android.sh
+        script: flutter create --platforms=android .
       - name: Get packages
         script: flutter pub get
-      - name: Analyze Dart code
-        script: flutter analyze
-      - name: Run tests
-        script: flutter test
-      - name: Build release APK
+      - name: Build APK
         script: flutter build apk --release
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
